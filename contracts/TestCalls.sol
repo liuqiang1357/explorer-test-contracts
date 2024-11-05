@@ -6,78 +6,78 @@ contract TestCalls {
 
     int public counter = 0;
 
-    struct T {
+    struct T1 {
         int a;
         uint b;
-        address c;
-        bool d;
-        bytes e;
-        string f;
     }
 
     struct T2 {
-        T t;
-        T[4] ta;
-        T[] ta2;
+        T1 t1;
+        T1[4] t2;
+        T1[] t3;
     }
 
-    function read00() public pure {}
+    struct T3 {
+        int a;
+        int8 b;
+        uint c;
+        uint8 d;
+        address e;
+        bool f;
+        bytes g;
+        bytes8 h;
+        string i;
+    }
 
-    function read01(int a) public pure returns (int a1) {
+    function read01() public pure {}
+
+    function read02(int a) public pure returns (int a1) {
         return a;
     }
 
-    function read02(
+    function read03(
         int[4] calldata a
     ) public pure returns (int[4] calldata a1) {
         return a;
     }
 
-    function read03(int[] calldata a) public pure returns (int[] calldata a1) {
+    function read04(int[] calldata a) public pure returns (int[] calldata a1) {
         return a;
     }
 
-    function read04(
+    function read05(
         int[4][4] calldata a
     ) public pure returns (int[4][4] calldata a1) {
         return a;
     }
 
-    function read05(
+    function read06(
         int[4][] calldata a
     ) public pure returns (int[4][] calldata a1) {
         return a;
     }
 
-    function read06(
+    function read07(
         int[][4] calldata a
     ) public pure returns (int[][4] calldata a1) {
         return a;
     }
 
-    function read07(
+    function read08(
         int[][] calldata a
     ) public pure returns (int[][] calldata a1) {
         return a;
     }
 
-    function read08(T calldata a) public pure returns (T calldata a1) {
+    function read09(T1 calldata a) public pure returns (T1 calldata a1) {
         return a;
     }
 
-    function read09(T[] calldata a) public pure returns (T[] calldata a1) {
+    function read10(T1[] calldata a) public pure returns (T1[] calldata a1) {
         return a;
     }
 
-    function read10(T2 calldata a) public pure returns (T2 calldata a1) {
-        return a;
-    }
-
-    function read11(T2[] calldata a) public pure returns (T2[] calldata a1) {
-        return a;
-    }
-
-    function read12(
+    function read11(
         T2[] calldata a,
         int b,
         string calldata c
@@ -85,77 +85,76 @@ contract TestCalls {
         return (a, b, c);
     }
 
-    function write00() public {
+    function read12(T3 calldata a) public pure returns (T3 calldata) {
+        return a;
+    }
+
+    function write01() public {
         counter++;
     }
 
-    function write01(int a) public returns (int a1) {
+    function write02(int a) public returns (int a1) {
         counter++;
         return a;
     }
 
-    function write02(int[4] calldata a) public returns (int[4] calldata a1) {
+    function write03(int[4] calldata a) public returns (int[4] calldata a1) {
         counter++;
         return a;
     }
 
-    function write03(int[] calldata a) public returns (int[] calldata a1) {
+    function write04(int[] calldata a) public returns (int[] calldata a1) {
         counter++;
         return a;
     }
 
-    function write04(
+    function write05(
         int[4][4] calldata a
     ) public returns (int[4][4] calldata a1) {
         counter++;
         return a;
     }
 
-    function write05(
+    function write06(
         int[4][] calldata a
     ) public returns (int[4][] calldata a1) {
         counter++;
         return a;
     }
 
-    function write06(
+    function write07(
         int[][4] calldata a
     ) public returns (int[][4] calldata a1) {
         counter++;
         return a;
     }
 
-    function write07(int[][] calldata a) public returns (int[][] calldata a1) {
+    function write08(int[][] calldata a) public returns (int[][] calldata a1) {
         counter++;
         return a;
     }
 
-    function write08(T calldata a) public returns (T calldata a1) {
+    function write09(T1 calldata a) public returns (T1 calldata a1) {
         counter++;
         return a;
     }
 
-    function write09(T[] calldata a) public returns (T[] calldata a1) {
+    function write10(T1[] calldata a) public returns (T1[] calldata a1) {
         counter++;
         return a;
     }
 
-    function write10(T2 calldata a) public returns (T2 calldata a1) {
-        counter++;
-        return a;
-    }
-
-    function write11(T[] calldata a) public returns (T[] calldata a1) {
-        counter++;
-        return a;
-    }
-
-    function write12(
-        T[] calldata a,
+    function write11(
+        T2[] calldata a,
         int b,
         string calldata c
-    ) public payable returns (T[] calldata a1, int b1, string calldata c1, uint256 value) {
+    ) public payable returns (T2[] calldata a1, int b1, string calldata c1, uint256 value) {
         counter++;
         return (a, b, c, msg.value);
+    }
+
+    function write12(T3 calldata a) public returns (T3 calldata) {
+        counter++;
+        return a;
     }
 }
